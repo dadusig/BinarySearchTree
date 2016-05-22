@@ -300,3 +300,66 @@ void BST::RemoveMatch(node* parent, node* match, bool isLeft)
     else
         cout << "Cannot remove match. Tree is empty! \n";
 }
+
+void BST::PrintPostOrder()
+{
+    PrintPostOrderPrivate(root);
+}
+
+void BST::PrintPostOrderPrivate(node* ptr)
+{
+    if (root!=NULL)
+    {
+        if (ptr->right != NULL)
+        {
+            PrintPostOrderPrivate(ptr->right);
+        }
+        cout << ptr->key << " ";
+        if (ptr->left != NULL)
+        {
+            PrintPostOrderPrivate(ptr->left);
+        }
+    }
+    else
+        cout << "Tree is empty! \n";
+}
+
+BST::~BST()
+{
+    RemoveSubtree(root);
+}
+
+void BST::RemoveSubtree(node* ptr)
+{
+    if (ptr != NULL)
+    {
+        if (ptr->left!=NULL)
+            RemoveSubtree(ptr->left);
+        if (ptr->right)
+            RemoveSubtree(ptr->right);
+        cout << "Deleting node " << ptr->key << "\n";
+        delete ptr;
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

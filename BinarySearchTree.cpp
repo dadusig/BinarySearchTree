@@ -41,6 +41,12 @@ int main()
 
 	cout << "The smallest value in the tree is " << myTree.FindSmallest() << endl;
     
+    cout << "Print tree with In Order Traversal:\n";
+    myTree.PrintInOrder();
+    cout << endl;
+    myTree.PrintPostOrder();
+    cout << endl;
+    
     
     cout << "Enter a key value to delete (-1 to stop):\n";
     int input=0;
@@ -58,11 +64,6 @@ int main()
             }
         }
     }
-     
-    
-
-
-
 
     return 0;
 }
