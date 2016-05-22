@@ -116,13 +116,9 @@ BST::node* BST::ReturnNodePrivate(int key, node* Ptr)
 int BST::ReturnRootKey()
 {
 	if (root != NULL)
-	{
 		return root->key;
-	}
 	else
-	{
 		return -1000;
-	}
 }
 
 void BST::PrintChildren(int key)
@@ -142,9 +138,8 @@ void BST::PrintChildren(int key)
 			cout << "Right Child = " << Ptr->right->key << endl;
 	}
 	else
-	{
 		cout << "The key " << key << " is not in the tree!\n";
-	}
+	
 }
 
 int BST::FindSmallest()
@@ -229,16 +224,16 @@ void BST::RemoveRootMatch()
             root = root->right;
             delPtr->right = NULL;
             delete delPtr;
-            cout << "The root node with key " << rootKey << "was deleted. \n" <<
-            "The new root contains key " << root->key << endl;
+           // cout << "The root node with key " << rootKey << "was deleted. \n" <<
+           // "The new root contains key " << root->key << endl;
         }
         else if (root->left!=NULL && root->right == NULL)
         {
             root = root->left;
             delPtr->left = NULL;
             delete delPtr;
-            cout << "The root node with key " << rootKey << "was deleted. \n" <<
-            "The new root contains key " << root->key << endl;
+            //cout << "The root node with key " << rootKey << "was deleted. \n" <<
+            //"The new root contains key " << root->key << endl;
         }
         //case 2 - 2 children
         else
@@ -246,7 +241,7 @@ void BST::RemoveRootMatch()
             smallestInRightSubTree = FindSmallestPrivate(root->right);
             RemoveNodePrivate(smallestInRightSubTree, root);
             root->key = smallestInRightSubTree;
-            cout << "The root key " << rootKey << " was overwritten by " << smallestInRightSubTree << endl;
+            //cout << "The root key " << rootKey << " was overwritten by " << smallestInRightSubTree << endl;
         }
     }
     else
@@ -269,7 +264,7 @@ void BST::RemoveMatch(node* parent, node* match, bool isLeft)
             parent->left = NULL:
             parent->right = NULL;
             delete delPtr;
-            cout << "The node containing key " << matchKey << " was deleted\n";
+            //cout << "The node containing key " << matchKey << " was deleted\n";
         }
         //case 1 - 1 child
         else if (match->left==NULL && match->right!=NULL)
@@ -281,7 +276,7 @@ void BST::RemoveMatch(node* parent, node* match, bool isLeft)
             match->right = NULL;
             delPtr = match;
             delete delPtr;
-            cout << "The node containing key " << matchKey << " was deleted\n";
+            //cout << "The node containing key " << matchKey << " was deleted\n";
         }
         else if (match->left!=NULL && match->right==NULL)
         {
@@ -292,7 +287,7 @@ void BST::RemoveMatch(node* parent, node* match, bool isLeft)
             match->left = NULL;
             delPtr = match;
             delete delPtr;
-            cout << "The node containing key " << matchKey << " was deleted\n";
+            //cout << "The node containing key " << matchKey << " was deleted\n";
         }
         //case 2 - 2 children
         else
