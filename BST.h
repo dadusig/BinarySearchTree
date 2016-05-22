@@ -30,12 +30,16 @@ private:
     void RemoveNodePrivate(int key, node* parent);
     void RemoveRootMatch();
     void RemoveMatch(node* parent, node* match, bool isLeft);
+    void PrintPostOrderPrivate(node* ptr);
+    void RemoveSubtree(node* ptr);
 public:
 	BST();
+    ~BST();
 	void AddLeaf(int key); 
 	void PrintInOrder();
 	int ReturnRootKey();
 	void PrintChildren(int key);
 	int FindSmallest();
     void RemoveNode(int key);
+    void PrintPostOrder();
 };
